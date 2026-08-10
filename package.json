@@ -2,22 +2,43 @@
   "name": "hypersensitive",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=24.14.0"
+  },
   "scripts": {
+    "prepare": "simple-git-hooks",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.20.0",
+      "onFail": "download"
+    }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "./node_modules/.bin/nano-staged"
+  },
+  "nano-staged": {
+    "*.{astro,cjs,css,js,json,jsonc,jsx,mjs,ts,tsx}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
+  },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "astro": "^4.11.3",
-    "fathom-client": "^3.7.0",
-    "typescript": "^5.5.2"
+    "@astrojs/check": "^0.9.10",
+    "astro": "^7.2.0",
+    "fathom-client": "^3.7.2",
+    "wrangler": "^4.120.0"
   },
   "devDependencies": {
-    "@types/node": "^20.14.9",
-    "prettier": "^3.3.2",
-    "prettier-plugin-astro": "^0.14.0"
+    "@biomejs/biome": "^2.5.7",
+    "@types/node": "^26.2.0",
+    "nano-staged": "^1.0.2",
+    "simple-git-hooks": "^2.13.1",
+    "typescript": "^6.0.3"
   }
 }
