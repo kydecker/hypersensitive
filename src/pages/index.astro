@@ -22,12 +22,13 @@ import Hypersensitive from "../components/Hypersensitive.astro";
       property="og:image:alt"
       content="The event is too bright. The city is too uncomfortable. The brain is too humid. The light is too nervous."
     />
-    <script>
-      import * as Fathom from "fathom-client";
-      Fathom.load("OSBFASYG");
-    </script>
   </head>
   <body>
     <Hypersensitive />
+    <script
+      type="module"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "acea56001df249d8bec13e3a838ad22f"}'
+    ></script>
   </body>
 </html>
